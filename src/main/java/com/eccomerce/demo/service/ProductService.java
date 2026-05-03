@@ -9,7 +9,11 @@ import com.eccomerce.demo.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
     
     public List<Product> getAllProducts() {
         return productRepository.findAll();
